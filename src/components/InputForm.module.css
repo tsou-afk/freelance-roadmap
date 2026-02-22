@@ -1,0 +1,209 @@
+.form {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px 24px;
+  box-shadow: 0 4px 24px rgba(255,107,0,0.10);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #FF6B00;
+  margin-bottom: 20px;
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+.label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #555;
+  margin-bottom: 7px;
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  background: #f8f8f8;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  padding: 0 12px;
+  transition: border-color 0.2s;
+}
+.inputRow:focus-within {
+  border-color: #FF6B00;
+  background: #fff;
+}
+
+.prefix {
+  font-size: 13px;
+  font-weight: 700;
+  color: #999;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  font-weight: 700;
+  padding: 10px 4px;
+  outline: none;
+  color: #222;
+  width: 0;
+  min-width: 0;
+}
+
+.unit {
+  font-size: 13px;
+  font-weight: 700;
+  color: #999;
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+
+.inputDate {
+  width: 100%;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  background: #f8f8f8;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.inputDate:focus {
+  border-color: #FF6B00;
+  background: #fff;
+}
+
+/* ─── プランカードグリッド ─── */
+.planGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.planCard {
+  position: relative;
+  border: 2.5px solid #EBEBEB;
+  border-radius: 14px;
+  padding: 12px 6px 10px;
+  text-align: center;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  font-family: inherit;
+}
+.planCard:hover {
+  border-color: #FF9500;
+  background: #FFF3E8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255,107,0,0.12);
+}
+.planCardSelected {
+  border-color: #FF6B00 !important;
+  background: #FFF3E8 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(255,107,0,0.20);
+}
+
+.planCheck {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #FF6B00;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.planCardSelected .planCheck { opacity: 1; }
+
+.planMonths {
+  font-size: 24px;
+  font-weight: 900;
+  color: #FF6B00;
+  line-height: 1;
+}
+.planUnit {
+  font-size: 11px;
+  font-weight: 700;
+  color: #999;
+  margin-top: 2px;
+  margin-bottom: 6px;
+}
+.planDetail {
+  font-size: 10px;
+  font-weight: 600;
+  color: #777;
+  background: #F5F5F5;
+  border-radius: 5px;
+  padding: 2px 4px;
+  margin-top: 3px;
+  line-height: 1.4;
+}
+.planCardSelected .planDetail {
+  background: rgba(255,107,0,0.12);
+  color: #E65100;
+}
+
+.hint {
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+.error {
+  font-size: 12px;
+  color: #e53935;
+  margin-top: 5px;
+}
+
+.options {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  cursor: pointer;
+}
+.toggle input[type="checkbox"] {
+  accent-color: #FF6B00;
+  width: 16px;
+  height: 16px;
+}
+
+.btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #FF6B00, #FF9500);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 5px 18px rgba(255,107,0,0.30);
+  transition: transform 0.1s, box-shadow 0.2s;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(255,107,0,0.35); }
+.btn:active { transform: scale(0.98); }

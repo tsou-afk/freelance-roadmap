@@ -1,7 +1,8 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // roughjs は pure ESM なので transpile 対象に含める
+  transpilePackages: ['roughjs'],
 };
 
 export default nextConfig;

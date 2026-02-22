@@ -1,65 +1,43 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+
+import { useState } from 'react';
+import dynamic from 'next/dynamic';
+import InputForm from '@/components/InputForm';
+import type { RoadmapInput, RoadmapData } from '@/types';
+import { calculateRoadmap } from '@/lib/calculator';
+import styles from './page.module.css';
+
+// roughjs は DOM 依存なので SSR を無効化
+const RoadmapPreview = dynamic(
+  () => import('@/components/RoadmapPreview'),
+  { ssr: false }
+);
 
 export default function Home() {
+  const [roadmapData, setRoadmapData] = useState<RoadmapData | null>(null);
+
+  function handleGenerate(input: RoadmapInput) {
+    setRoadmapData(calculateRoadmap(input));
+  }
+
   return (
     <div className={styles.page}>
+      <header className={styles.header}>
+        <h1 className={styles.headerTitle}>
+          🚀 フリーランスロードマップ ジェネレーター
+        </h1>
+        <p className={styles.headerSub}>
+          入力するだけで、あなた専用の手書き風ロードマップが完成！
+        </p>
+      </header>
+
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        <aside className={styles.sidebar}>
+          <InputForm onGenerate={handleGenerate} />
+        </aside>
+        <section className={styles.preview}>
+          <RoadmapPreview data={roadmapData} />
+        </section>
       </main>
     </div>
   );

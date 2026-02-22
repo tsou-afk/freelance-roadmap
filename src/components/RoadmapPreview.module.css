@@ -1,0 +1,70 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.previewBox {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(255,107,0,0.10);
+  overflow: hidden;
+  position: relative;
+  min-height: 200px;
+}
+
+.svgContainer {
+  width: 100%;
+  display: block;
+}
+
+.svgContainer svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ccc;
+  text-align: center;
+  line-height: 1.7;
+}
+
+.dlRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.dlBtn {
+  flex: 1;
+  min-width: 110px;
+  padding: 13px 8px;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.15s;
+}
+.dlBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+.dlBtn:not(:disabled):hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,0.12); }
+.dlBtn:not(:disabled):active { transform: scale(0.97); }
+
+.dlSvg { background: #FFF3E0; color: #E65100; }
+.dlPng { background: #E3F2FD; color: #1565C0; }
+.dlPdf { background: #FCE4EC; color: #880E4F; }
+
+.loadingMsg {
+  text-align: center;
+  font-size: 13px;
+  color: #FF6B00;
+  font-weight: 600;
+}

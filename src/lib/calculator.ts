@@ -20,8 +20,7 @@ function addMonths(date: Date, months: number): Date {
 export function calculateRoadmap(input: RoadmapInput): RoadmapData {
   const plan = PLANS[input.planKey];
 
-  const acquisitionIncomePerMonth = plan.acquisitionIncomePerMonth;
-  const acquisitionTotalIncome    = acquisitionIncomePerMonth * plan.acquisitionMonths;
+  const acquisitionTotalIncome = plan.acquisitionTotalIncome;
   const freelanceMonths = TOTAL_MONTHS - plan.totalMonths;
   const totalSavings    = input.monthlySavings * freelanceMonths;
 
@@ -37,7 +36,6 @@ export function calculateRoadmap(input: RoadmapInput): RoadmapData {
     freelanceMonths,
     targetMonthlyIncome: input.targetMonthlyIncome,
     monthlySavings: input.monthlySavings,
-    acquisitionIncomePerMonth,
     acquisitionTotalIncome,
     totalSavings,
     startDate,

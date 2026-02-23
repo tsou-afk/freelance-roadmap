@@ -472,8 +472,8 @@ export function generateSVGElement(data: RoadmapData): SVGSVGElement {
   const boxes: BoxSpec[] = [
     {
       label:        '案件獲得期間の収入見込み',
-      formulaStr:   `平均 ${data.acquisitionIncomePerMonth}万円 × ${acquisitionMonths}ヶ月`,
-      resultStr:    `＝ ${fmtMan(data.acquisitionTotalIncome)}`,
+      formulaStr:   '受講期間中の合計',
+      resultStr:    fmtMan(data.acquisitionTotalIncome),
       fill:         '#FFF8E1', stroke: '#F59E0B',
       formulaColor: '#B8860B', resultColor: '#E65100',
     },

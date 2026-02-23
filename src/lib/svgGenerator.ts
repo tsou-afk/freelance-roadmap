@@ -480,10 +480,11 @@ export function generateSVGElement(data: RoadmapData): SVGSVGElement {
     {
       label:        '卒業後の月収目標',
       formulaStr:   `月 ${fmtMan(data.targetMonthlyIncome)}`,
-      resultStr:    'フリーランス達成！',
+      resultStr:    '目指せ達成！🎯',
       fill:         '#E8F5E9', stroke: '#388E3C',
       formulaColor: '#2E7D32', resultColor: '#4CAF50',
-      subStr: '', subColor: '',
+      subStr:       '単価UP・実績を武器に交渉も◎',
+      subColor:     '#388E3C',
     },
     {
       label:        '月貯金目標',
